@@ -1,6 +1,6 @@
 <?php $this->load->view('header');?>            
 
-    <div class="limiter">
+     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
