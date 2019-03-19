@@ -333,7 +333,10 @@ $(document).ready(function() {
                 }
                 if(length_valid_flag==1 && email_valid_flag==1 && pass_valid_flag==1 ){
                     register_valid_flag=1
+                }==1 && email_valid_flag==1 && pass_valid_flag==1 ){
+                    register_valid_flag=1
                 }
+
 
                 
 
