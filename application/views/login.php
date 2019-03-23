@@ -1,6 +1,6 @@
 <?php $this->load->view('header');?>            
 
-    <div class="limiter">
+     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
@@ -333,7 +333,10 @@ $(document).ready(function() {
                 }
                 if(length_valid_flag==1 && email_valid_flag==1 && pass_valid_flag==1 ){
                     register_valid_flag=1
+                }==1 && email_valid_flag==1 && pass_valid_flag==1 ){
+                    register_valid_flag=1
                 }
+
 
                 
 
