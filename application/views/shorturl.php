@@ -28,7 +28,8 @@
                                                 <span id="shorten-button-amount"><i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                 </span>
                                             </button>
-                                            <span class="short_url_show"></span>
+                                            <input type="text" class="short_url_show"/>
+                                            
                 </div>
                 <div class="au-task__footer">
                 </div>
@@ -54,7 +55,7 @@ $(document).ready(function() {
             },
             dataType: 'json',
             complete: function(data) {
-                $('.short_url_show').text(data.responseText)
+                $('.short_url_show').val(data.responseText)
                 console.log(data.responseText);
             }
         });
@@ -62,8 +63,9 @@ $(document).ready(function() {
 
     });
     $('.short_url_show').click(function(){
-        // this.select();
-        // document.execCommand("copy");
+        this.select();
+        document.execCommand("copy");
+        $(this).tooltip('enable').tooltip('open');
     });
 
 });
