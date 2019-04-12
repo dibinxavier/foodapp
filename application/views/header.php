@@ -55,6 +55,7 @@
 						<li class=""><a id="home" class="active">Home</a></li>
 						<li><a id="about">About</a></li>
 						<li><a id="portfolio" >Portfolio</a></li>
+						<li><a id="contact" >Contact</a></li>
 						<li class="menu-has-children"><a href="#">Pages</a>
 							<ul>
 								<li><a href="elements.html">Elements</a></li>

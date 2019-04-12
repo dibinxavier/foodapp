@@ -81,6 +81,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			$(this).addClass("active");
 		});
 
+		$( "#contact" ).click(function() {
+			$("html, body").animate({scrollTop: $('.contact-area').offset().top }, 2000);
+			$(".nav-menu li a").removeClass("active");
+			$(this).addClass("active");
+		});
+		
+
 	</script>
 
 </body>
