@@ -1,533 +1,501 @@
-<?php $this->load->view('header_main');?>      
+<?php $this->load->view('header');?>      
 
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="overview-wrap">
-            <h2 class="title-1">overview</h2>
-            <button class="au-btn au-btn-icon au-btn--blue">
-                <i class="zmdi zmdi-plus"></i>add item</button>
-        </div>
-    </div>
-</div>
-<div class="row m-t-25">
-    <div class="col-sm-6 col-lg-3">
-        <div class="overview-item overview-item--c1">
-            <div class="overview__inner">
-                <div class="overview-box clearfix">
-                    <div class="icon">
-                        <i class="zmdi zmdi-account-o"></i>
-                    </div>
-                    <div class="text">
-                        <h2>10368</h2>
-                        <span>members online</span>
-                    </div>
-                </div>
-                <div class="overview-chart">
-                    <canvas id="widgetChart1"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="overview-item overview-item--c2">
-            <div class="overview__inner">
-                <div class="overview-box clearfix">
-                    <div class="icon">
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                    </div>
-                    <div class="text">
-                        <h2>388,688</h2>
-                        <span>items solid</span>
-                    </div>
-                </div>
-                <div class="overview-chart">
-                    <canvas id="widgetChart2"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="overview-item overview-item--c3">
-            <div class="overview__inner">
-                <div class="overview-box clearfix">
-                    <div class="icon">
-                        <i class="zmdi zmdi-calendar-note"></i>
-                    </div>
-                    <div class="text">
-                        <h2>108,600</h2>
-                        <span>this week</span>
-                    </div>
-                </div>
-                <div class="overview-chart">
-                    <canvas id="widgetChart3"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="overview-item overview-item--c4">
-            <div class="overview__inner">
-                <div class="overview-box clearfix">
-                    <div class="icon">
-                        <i class="zmdi zmdi-money"></i>
-                    </div>
-                    <div class="text">
-                        <h2>$1,060,386</h2>
-                        <span>total earnings</span>
-                    </div>
-                </div>
-                <div class="overview-chart">
-                    <canvas id="widgetChart4"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="au-card recent-report">
-            <div class="au-card-inner">
-                <h3 class="title-2">recent reports</h3>
-                <div class="chart-info">
-                    <div class="chart-info__left">
-                        <div class="chart-note">
-                            <span class="dot dot--blue"></span>
-                            <span>products</span>
-                        </div>
-                        <div class="chart-note mr-0">
-                            <span class="dot dot--green"></span>
-                            <span>services</span>
-                        </div>
-                    </div>
-                    <div class="chart-info__right">
-                        <div class="chart-statis">
-                            <span class="index incre">
-                                <i class="zmdi zmdi-long-arrow-up"></i>25%</span>
-                            <span class="label">products</span>
-                        </div>
-                        <div class="chart-statis mr-0">
-                            <span class="index decre">
-                                <i class="zmdi zmdi-long-arrow-down"></i>10%</span>
-                            <span class="label">services</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="recent-report__chart">
-                    <canvas id="recent-rep-chart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="au-card chart-percent-card">
-            <div class="au-card-inner">
-                <h3 class="title-2 tm-b-5">char by %</h3>
-                <div class="row no-gutters">
-                    <div class="col-xl-6">
-                        <div class="chart-note-wrap">
-                            <div class="chart-note mr-0 d-block">
-                                <span class="dot dot--blue"></span>
-                                <span>products</span>
-                            </div>
-                            <div class="chart-note mr-0 d-block">
-                                <span class="dot dot--red"></span>
-                                <span>services</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="percent-chart">
-                            <canvas id="percent-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-9">
-        <h2 class="title-1 m-b-25">Earnings By Items</h2>
-        <div class="table-responsive table--no-card m-b-40">
-            <table class="table table-borderless table-striped table-earning">
-                <thead>
-                    <tr>
-                        <th>date</th>
-                        <th>order ID</th>
-                        <th>name</th>
-                        <th class="text-right">price</th>
-                        <th class="text-right">quantity</th>
-                        <th class="text-right">total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2018-09-29 05:57</td>
-                        <td>100398</td>
-                        <td>iPhone X 64Gb Grey</td>
-                        <td class="text-right">$999.00</td>
-                        <td class="text-right">1</td>
-                        <td class="text-right">$999.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-28 01:22</td>
-                        <td>100397</td>
-                        <td>Samsung S8 Black</td>
-                        <td class="text-right">$756.00</td>
-                        <td class="text-right">1</td>
-                        <td class="text-right">$756.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-27 02:12</td>
-                        <td>100396</td>
-                        <td>Game Console Controller</td>
-                        <td class="text-right">$22.00</td>
-                        <td class="text-right">2</td>
-                        <td class="text-right">$44.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-26 23:06</td>
-                        <td>100395</td>
-                        <td>iPhone X 256Gb Black</td>
-                        <td class="text-right">$1199.00</td>
-                        <td class="text-right">1</td>
-                        <td class="text-right">$1199.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-25 19:03</td>
-                        <td>100393</td>
-                        <td>USB 3.0 Cable</td>
-                        <td class="text-right">$10.00</td>
-                        <td class="text-right">3</td>
-                        <td class="text-right">$30.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-29 05:57</td>
-                        <td>100392</td>
-                        <td>Smartwatch 4.0 LTE Wifi</td>
-                        <td class="text-right">$199.00</td>
-                        <td class="text-right">6</td>
-                        <td class="text-right">$1494.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-24 19:10</td>
-                        <td>100391</td>
-                        <td>Camera C430W 4k</td>
-                        <td class="text-right">$699.00</td>
-                        <td class="text-right">1</td>
-                        <td class="text-right">$699.00</td>
-                    </tr>
-                    <tr>
-                        <td>2018-09-22 00:43</td>
-                        <td>100393</td>
-                        <td>USB 3.0 Cable</td>
-                        <td class="text-right">$10.00</td>
-                        <td class="text-right">3</td>
-                        <td class="text-right">$30.00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <h2 class="title-1 m-b-25">Top countries</h2>
-        <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-            <div class="au-card-inner">
-                <div class="table-responsive">
-                    <table class="table table-top-countries">
-                        <tbody>
-                            <tr>
-                                <td>United States</td>
-                                <td class="text-right">$119,366.96</td>
-                            </tr>
-                            <tr>
-                                <td>Australia</td>
-                                <td class="text-right">$70,261.65</td>
-                            </tr>
-                            <tr>
-                                <td>United Kingdom</td>
-                                <td class="text-right">$46,399.22</td>
-                            </tr>
-                            <tr>
-                                <td>Turkey</td>
-                                <td class="text-right">$35,364.90</td>
-                            </tr>
-                            <tr>
-                                <td>Germany</td>
-                                <td class="text-right">$20,366.96</td>
-                            </tr>
-                            <tr>
-                                <td>France</td>
-                                <td class="text-right">$10,366.96</td>
-                            </tr>
-                            <tr>
-                                <td>Australia</td>
-                                <td class="text-right">$5,366.96</td>
-                            </tr>
-                            <tr>
-                                <td>Italy</td>
-                                <td class="text-right">$1639.32</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-            <div class="au-card-title" style="background-image:url('<?php echo base_url(); ?>assets/images/bg-title-01.jpg');">
-                <div class="bg-overlay bg-overlay--blue"></div>
-                <h3>
-                    <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
-                <button class="au-btn-plus">
-                    <i class="zmdi zmdi-plus"></i>
-                </button>
-            </div>
-            <div class="au-task js-list-load">
-                <div class="au-task__title">
-                    <p>Tasks for John Doe</p>
-                </div>
-                <div class="au-task-list js-scrollbar3">
-                    <div class="au-task__item au-task__item--danger">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Meeting about plan for Admin Template 2018</a>
-                            </h5>
-                            <span class="time">10:00 AM</span>
-                        </div>
-                    </div>
-                    <div class="au-task__item au-task__item--warning">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Create new task for Dashboard</a>
-                            </h5>
-                            <span class="time">11:00 AM</span>
-                        </div>
-                    </div>
-                    <div class="au-task__item au-task__item--primary">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Meeting about plan for Admin Template 2018</a>
-                            </h5>
-                            <span class="time">02:00 PM</span>
-                        </div>
-                    </div>
-                    <div class="au-task__item au-task__item--success">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Create new task for Dashboard</a>
-                            </h5>
-                            <span class="time">03:30 PM</span>
-                        </div>
-                    </div>
-                    <div class="au-task__item au-task__item--danger js-load-item">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Meeting about plan for Admin Template 2018</a>
-                            </h5>
-                            <span class="time">10:00 AM</span>
-                        </div>
-                    </div>
-                    <div class="au-task__item au-task__item--warning js-load-item">
-                        <div class="au-task__item-inner">
-                            <h5 class="task">
-                                <a href="#">Create new task for Dashboard</a>
-                            </h5>
-                            <span class="time">11:00 AM</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="au-task__footer">
-                    <button class="au-btn au-btn-load js-load-btn">load more</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-            <div class="au-card-title" style="background-image:url('<?php echo base_url(); ?>assets/images/bg-title-02.jpg');">
-                <div class="bg-overlay bg-overlay--blue"></div>
-                <h3>
-                    <i class="zmdi zmdi-comment-text"></i>New Messages</h3>
-                <button class="au-btn-plus">
-                    <i class="zmdi zmdi-plus"></i>
-                </button>
-            </div>
-            <div class="au-inbox-wrap js-inbox-wrap">
-                <div class="au-message js-list-load">
-                    <div class="au-message__noti">
-                        <p>You Have
-                            <span>2</span>
+	<!-- start banner Area -->
+	<section class="home-banner-area">
+		<div class="container">
+			<div class="row fullscreen d-flex align-items-center">
+				<div class="banner-content col-lg-6 col-md-12 justify-content-center ">
+					<div class="me wow fadeInDown" data-wow-duration="1s" data-wow-delay="1.2s">It's me</div>
+					<h1 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">Dibin Xavier</h1>
+					<div class="designation mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.1s">
+						Senior Creative
+						<span class="designer">Designer</span>
+						and Content
+						<span class="developer">Developer</span>
+					</div>
+					<a href="#" class="primary-btn" data-text="Hire Me">
+						<span>H</span>
+						<span>i</span>
+						<span>r</span>
+						<span>e</span>
+						<span> </span>
+						<span>M</span>
+						<span>e</span>
+					</a>
+				</div>
+				<div class="banner-img col-lg-6 col-md-6 align-self-end">
+					<div class="login100-pic js-tilt" data-tilt>
+					    <img src="<?php echo base_url(); ?>assets/img/3d3.png" alt="IMG">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
 
-                            new messages
-                        </p>
-                    </div>
-                    <div class="au-message-list">
-                        <div class="au-message__item unread">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-02.jpg" alt="John Smith">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">John Smith</h5>
-                                        <p>Have sent a photo</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>12 Min ago</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item unread">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-03.jpg" alt="Nicholas Martinez">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Nicholas Martinez</h5>
-                                        <p>You are now connected on message</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>11:00 PM</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Lorem ipsum dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Yesterday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Purus feugiat finibus</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Sunday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item js-load-item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Lorem ipsum dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Yesterday</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-message__item js-load-item">
-                            <div class="au-message__item-inner">
-                                <div class="au-message__item-text">
-                                    <div class="avatar-wrap">
-                                        <div class="avatar">
-                                            <img src="<?php echo base_url(); ?>assets/images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <h5 class="name">Michelle Sims</h5>
-                                        <p>Purus feugiat finibus</p>
-                                    </div>
-                                </div>
-                                <div class="au-message__item-time">
-                                    <span>Sunday</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="au-message__footer">
-                        <button class="au-btn au-btn-load js-load-btn">load more</button>
-                    </div>
-                </div>
-                <div class="au-chat">
-                    <div class="au-chat__title">
-                        <div class="au-chat-info">
-                            <div class="avatar-wrap online">
-                                <div class="avatar avatar--small">
-                                    <img src="<?php echo base_url(); ?>assets/images/icon/avatar-02.jpg" alt="John Smith">
-                                </div>
-                            </div>
-                            <span class="nick">
-                                <a href="#">John Smith</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="au-chat__content">
-                        <div class="recei-mess-wrap">
-                            <span class="mess-time">12 Min ago</span>
-                            <div class="recei-mess__inner">
-                                <div class="avatar avatar--tiny">
-                                    <img src="<?php echo base_url(); ?>assets/images/icon/avatar-02.jpg" alt="John Smith">
-                                </div>
-                                <div class="recei-mess-list">
-                                    <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                    <div class="recei-mess">Donec tempor, sapien ac viverra</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="send-mess-wrap">
-                            <span class="mess-time">30 Sec ago</span>
-                            <div class="send-mess__inner">
-                                <div class="send-mess-list">
-                                    <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="au-chat-textfield">
-                        <form class="au-form-icon">
-                            <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
-                            <button class="au-input-icon">
-                                <i class="zmdi zmdi-camera"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END MAIN CONTENT-->
-<!-- END PAGE CONTAINER-->
-<?php $this->load->view('footer_main');?>      
+
+	<!-- Start brands Area -->
+	<section class="brands-area">
+		<div class="container">
+			<div class="brand-wrap">
+				<div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
+					<div class="col single-brand">
+						<a href="#"><img class="mx-auto" src="<?php echo base_url(); ?>assets/img/brand/b1.png" alt=""></a>
+					</div>
+					<div class="col single-brand">
+						<a href="#"><img class="mx-auto" src="<?php echo base_url(); ?>assets/img/brand/b2.png" alt=""></a>
+					</div>
+					<div class="col single-brand">
+						<a href="#"><img class="mx-auto" src="<?php echo base_url(); ?>assets/img/brand/b3.png" alt=""></a>
+					</div>
+					<div class="col single-brand">
+						<a href="#"><img class="mx-auto" src="<?php echo base_url(); ?>assets/img/brand/b4.png" alt=""></a>
+					</div>
+					<div class="col single-brand">
+						<a href="#"><img class="mx-auto" src="<?php echo base_url(); ?>assets/img/brand/b5.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End brands Area -->
+
+
+	<!-- Start About Area -->
+	<section class="about-area section-gap">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-6 about-left">
+					<img class="img-fluid" src="<?php echo base_url(); ?>assets/img/about-img.png" alt="">
+				</div>
+				<div class="col-lg-5 col-md-12 about-right">
+					<div class="section-title">
+						<h2>about myself</h2>
+					</div>
+					<div class="mb-50 wow fadeIn" data-wow-duration=".8s">
+						<p>
+							inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the
+							workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior
+							is often laughed. inappropriate behavior is often laughed off as “boys will be boys,” women face higher.
+						</p>
+						<p>That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often
+							laughed.
+						</p>
+					</div>
+					<a href="#" class="primary-btn white" data-text="More Info">
+						<span>M</span>
+						<span>o</span>
+						<span>r</span>
+						<span>e</span>
+						<span> </span>
+						<span>I</span>
+						<span>n</span>
+						<span>f</span>
+						<span>o</span>
+					</a>
+					<a href="#" class="primary-btn" data-text="Resume">
+						<span>R</span>
+						<span>e</span>
+						<span>s</span>
+						<span>u</span>
+						<span>m</span>
+						<span>e</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End About Area -->
+
+
+	<!-- Start Work Area Area -->
+	<section class="work-area section-gap-top section-gap-bottom-90" id="work">
+		<div class="container">
+			<div class="row d-flex justify-content-between align-items-end mb-80">
+				<div class="col-lg-6">
+					<div class="section-title">
+						<h2>Latest Works</h2>
+						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
+							some for as low as $.17 each.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="filters">
+						<ul>
+							<li class="active" data-filter=".all">All Categories</li>
+							<li data-filter=".branding">Branding</li>
+							<li data-filter=".creative">Creative Work</li>
+							<li data-filter=".web-design">Web Design</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="filters-content">
+				<div class="row grid">
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all creative wow fadeInUp" data-wow-duration="2s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w1.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web-design branding wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w2.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all branding web-design wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w3.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web-design wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w6.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all creative wow fadeInUp" data-wow-duration="2s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w4.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+					<div class="single-work col-lg-4 col-md-6 col-sm-12 all branding wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+						<div class="relative">
+							<div class="thumb">
+								<div class="overlay overlay-bg"></div>
+								<img class="image img-fluid" src="<?php echo base_url(); ?>assets/img/work/w5.jpg" alt="">
+							</div>
+							<div class="middle">
+								<h4>2D Vinyl Design</h4>
+								<div class="cat">Client Project</div>
+							</div>
+							<a class="overlay" href="portfolio-details.html"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Work Area Area -->
+
+
+	<!-- Start Job History Area Area -->
+	<section class="job-area section-gap-top section-gap-bottom-90">
+		<div class="container">
+			<div class="row d-flex">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>Job History</h2>
+						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
+							some for as low as $.17 each.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="single-job">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Senior Creative Design</h4>
+								<p>Old Bird IT, New Yorkt</p>
+							</div>
+							<div class="top-right">
+								<a href="#" class="primary-btn" data-text="Jul '15 to Present">
+									<span>J</span><span>u</span><span>l</span>
+									<span>'</span><span>1</span><span>5</span>
+									<span>t</span><span>o</span>
+									<span>P</span><span>r</span><span>e</span><span>s</span><span>e</span><span>n</span><span>t</span>
+								</a>
+							</div>
+						</div>
+						<div class="bottom-sec wow fadeIn" data-wow-duration="2s">
+							All users on MySpace will know that there are millions of people out there. Every day besides. All users on My will know
+							that there are millions of people out of the field there.
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="single-job">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Senior Visualiser</h4>
+								<p>Old Bird IT, New Yorkt</p>
+							</div>
+							<div class="top-right">
+								<a href="#" class="primary-btn" data-text="Jul '15 to Present">
+									<span>J</span><span>u</span><span>l</span>
+									<span>'</span><span>1</span><span>5</span>
+									<span>t</span><span>o</span>
+									<span>P</span><span>r</span><span>e</span><span>s</span><span>e</span><span>n</span><span>t</span>
+								</a>
+							</div>
+						</div>
+						<div class="bottom-sec wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
+							All users on MySpace will know that there are millions of people out there. Every day besides. All users on My will know
+							that there are millions of people out of the field there.
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="single-job">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Junior Visualiser</h4>
+								<p>Old Bird IT, New Yorkt</p>
+							</div>
+							<div class="top-right">
+								<a href="#" class="primary-btn" data-text="Jul '15 to Present">
+									<span>J</span><span>u</span><span>l</span>
+									<span>'</span><span>1</span><span>5</span>
+									<span>t</span><span>o</span>
+									<span>P</span><span>r</span><span>e</span><span>s</span><span>e</span><span>n</span><span>t</span>
+								</a>
+							</div>
+						</div>
+						<div class="bottom-sec wow fadeIn" data-wow-duration="2s" data-wow-delay="0.4s">
+							All users on MySpace will know that there are millions of people out there. Every day besides. All users on My will know
+							that there are millions of people out of the field there.
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="single-job">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Intern Designer</h4>
+								<p>Old Bird IT, New Yorkt</p>
+							</div>
+							<div class="top-right">
+								<a href="#" class="primary-btn" data-text="Jul '15 to Present">
+									<span>J</span><span>u</span><span>l</span>
+									<span>'</span><span>1</span><span>5</span>
+									<span>t</span><span>o</span>
+									<span>P</span><span>r</span><span>e</span><span>s</span><span>e</span><span>n</span><span>t</span>
+								</a>
+							</div>
+						</div>
+						<div class="bottom-sec wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
+							All users on MySpace will know that there are millions of people out there. Every day besides. All users on My will know
+							that there are millions of people out of the field there.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Job Historyt Area Area -->
+
+
+	<!-- Start Service Area -->
+	<section class="service-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>Service Offers</h2>
+						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
+							some for as low as $.17 each.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-service wow fadeInUp" data-wow-duration="1s">
+						<span class="lnr lnr-screen"></span>
+						<h4>
+							<span>Web</span> Design
+						</h4>
+						<p>If you’re looking blank casvsettes on the web, you may confuse.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<span class="lnr lnr-laptop-phone"></span>
+						<h4><span>Application</span> Development
+						</h4>
+						<p>If you’re looking blank casvsettes on the web, you may confuse.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+						<span class="lnr lnr-database"></span>
+						<h4><span>Web</span> Development
+						</h4>
+						<p>If you’re looking blank casvsettes on the web, you may confuse.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+						<span class="lnr lnr-chart-bars"></span>
+						<h4><span>Web</span> Development
+						</h4>
+						<p>If you’re looking blank casvsettes on the web, you may confuse.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Service Area -->
+
+
+	<!-- Start Testimonials Area -->
+	<section class="testimonials_area section-gap">
+		<div class="container">
+			<div class="testi_slider owl-carousel">
+				<div class="item">
+					<div class="testi_item">
+						<img src="<?php echo base_url(); ?>assets/img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi_item">
+						<img src="<?php echo base_url(); ?>assets/img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi_item">
+						<img src="<?php echo base_url(); ?>assets/img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Testimonials Area -->
+
+
+	<!-- Start Contact Area -->
+	<section class="contact-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="contact-title">
+						<h2>Contact Me</h2>
+						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
+							some for as low as $.17 each.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-80">
+				<div class="col-lg-4 col-md-4">
+					<div class="contact-box">
+						<h4>+91 8714 812137</h4>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4">
+					<div class="contact-box">
+						<h4>dibinxavier999@gmail.com</h4>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4">
+					<div class="contact-box">
+						<h4>itsdibin.weebly.com</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<a href="#" class="primary-btn mt-50" data-text="Hire Me">
+						<span>H</span>
+						<span>i</span>
+						<span>r</span>
+						<span>e</span>
+						<span> </span>
+						<span>M</span>
+						<span>e</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Contact Area -->
+
+<?php $this->load->view('footer');?>      

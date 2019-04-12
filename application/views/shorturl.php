@@ -21,14 +21,16 @@
             <div class="au-task js-list-load">
                 <div class="au-task__title">
                     <div class="form-group">
-                                                <label for="cc-shorten" class="control-label mb-1">Paste your URL here</label>
-                                                <input id="url_input" name="cc-shorten" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
-                                            </div>
-                                            <button center id="shorten-button" type="submit" class="col-lg-3 btn btn-lg btn-info btn-block">
-                                                <span id="shorten-button-amount"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                </span>
-                                            </button>
-                                            <input type="text" class="short_url_show"/>
+                            <label for="cc-shorten" class="control-label mb-1">Paste your URL here</label>
+                            <input id="url_input" name="cc-shorten" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                        </div>
+                        
+                        <button center id="shorten-button" type="submit" class="col-lg-3 btn btn-lg btn-info btn-block">
+                            <span id="shorten-button-amount"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        <input readonly type="text" class="short_url_show"/>
+                        
                                             
                 </div>
                 <div class="au-task__footer">
@@ -42,30 +44,50 @@
 <?php $this->load->view('footer_main');?>      
     <script type="text/javascript">
 $(document).ready(function() {
+    $('#shorten-button').attr("disabled", true);
+
+    $("#url_input").on( "keyup paste", function(){
+        if( $(this).val().length>0){
+            $('#shorten-button').attr("disabled", false);
+        } else {
+            $('#shorten-button').attr("disabled", true);
+        }
+    });
 
     $('#shorten-button').click(function() {
         var url = $("#url_input").val();
         //alert(url);
-
-        $.ajax({
-            url: '<?php echo base_url('shorturl/shortit'); ?>',
-            type: 'POST',
-            data: {
-                url: url
-            },
-            dataType: 'json',
-            complete: function(data) {
-                $('.short_url_show').val(data.responseText)
-                console.log(data.responseText);
-            }
-        });
-
+        if( url.length>0){
+            $.ajax({
+                url: '<?php echo base_url('shorturl/shortit'); ?>',
+                type: 'POST',
+                data: {
+                    url: url
+                },
+                dataType: 'json',
+                complete: function(data) {
+                    $('.short_url_show').val(data.responseText)
+                    console.log(data.responseText);
+                }
+            });
+        }
 
     });
+    var copied = 0;
     $('.short_url_show').click(function(){
+        
+        if(copied==0){
+            $(this).after("<p class='copied_alert'>Copied to clipboard!</p>");
+            setTimeout(() => {
+                $(".copied_alert").fadeOut();
+            }, 3000);
+           
+            copied = 1;
+        }
         this.select();
+        
         document.execCommand("copy");
-        $(this).tooltip('enable').tooltip('open');
+       // $(this).tooltip('enable').tooltip('open');
     });
 
 });
