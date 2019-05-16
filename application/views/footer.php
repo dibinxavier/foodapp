@@ -21,9 +21,98 @@
 			</div>
 			<div class="row footer-bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+					
+				</p>
+				<?php 
+				if($this->session->userdata('userdata'))
+				{?>
+					<span class="edit_icon footertext_edit" data-target="#edit" data-toggle="modal"><i class="fa fa-lg fa-pencil"></i></span>
+				<?php }?>
+
+
+
+
+
+				<!--Trigger-->
+			<div id="edit" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-body">
+			        <button data-dismiss="modal" class="close">&times;</button>
+			        <h4 style="color: #6b5f5f">EDIT</h4>
+			        <form id="edit_modal_form">
+			          
+			        </form>
+			      </div>
+			    </div>
+			  </div>  
+			</div>
+
+
+<style type="text/css">
+	
+
+
+
+
+/*Modal*/
+h4 {
+  font-weight: bold;
+  color: #fff;
+}
+.close {
+  color: #fff;
+  transform: scale(1.2)
+}
+.modal-content {
+  font-weight: bold;
+  background: linear-gradient(to bottom right,#ffffff,#848484);
+}
+.form-control {
+  margin: 1em 0;
+}
+.form-control:hover, .form-control:focus {
+  box-shadow: none;  
+  border-color: #fff;
+}
+.modal_input {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #eee;
+  padding-left: 2px;
+  font-weight: normal;
+  background: transparent;  
+  border-radius: 5px;
+}
+.form-control::-webkit-input-placeholder {
+  color: #eee;  
+}
+.form-control:focus::-webkit-input-placeholder {
+  font-weight: bold;
+  color: #fff;
+}
+.login {
+    padding: 6px 20px;
+    border-radius: 6px;
+    background: none;
+    border: 2px solid #524f4d;
+    color: #ffffff;
+    font-weight: bold;
+    transition: all .5s;
+    margin-top: 1em;
+}
+.login:hover {
+background: #f5f0f0;
+    color: #716868;
+}
+
+
+
+</style>
+
+
+
 			</div>
 		</div>
 	</footer>
@@ -56,6 +145,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="<?php echo base_url(); ?>assets/js/wow.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/tilt.jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+	<!-- <script src="<?php echo base_url(); ?>assets/js/notify.js"></script> -->
+	<script src="<?php echo base_url(); ?>assets/vendor/bootstrap-notify-master/bootstrap-notify.js"></script>
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
@@ -87,6 +178,56 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			$(this).addClass("active");
 		});
 		
+		$( ".footertext_edit" ).click(function() {
+			 $.ajax({
+                url: '<?php echo base_url('content/footer_text'); ?>',
+                type: 'GET',
+                dataType: 'json',
+                complete: function(data) {
+                	// var obj = JSON.parse(data);
+                    console.log(data.responseText);
+                    $("#edit_modal_form").html('<textarea type="text" id="footertext" class="modal_input footertext form-control" >'+data.responseText+'</textarea>  <span data-dismiss="modal" id="footertext_save" class="btn login">OK</span>' );
+                    
+                }
+            });
+		});
+
+
+
+
+
+		$(document).on('click', '#footertext_save', function(){
+			var footertext = $("#footertext").val();
+			 $.ajax({
+                url: '<?php echo base_url('content/footer_text_update'); ?>',
+                type: 'POST',
+                data: {
+                    footertext: footertext
+                },
+                dataType: 'json',
+                complete: function(data) {
+                    $(".footer-text").html(footertext);
+					$.notify({
+						message: 'Successfully Updated!'
+					});
+                }
+            });
+		});
+
+		function getFooterText()
+		{
+			$.ajax({
+                url: '<?php echo base_url('content/footer_text'); ?>',
+                type: 'GET',
+                dataType: 'json',
+                complete: function(data) {
+                	$(".footer-text").html(data.responseText);
+                }
+            });
+		}
+		$(document).ready(function(){
+			getFooterText();
+		});
 
 	</script>
 

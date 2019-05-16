@@ -1,10 +1,10 @@
-<?php $this->load->view('header');?>            
+<?php $this->load->view('header_login');?>            
 
      <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="<?php echo base_url(); ?>assets/images/3d3.png" alt="IMG">
+                    <img src="<?php echo base_url(); ?>assets/img/3d3.png" alt="IMG">
 
                 </div>
 
@@ -85,7 +85,7 @@
                         <div class="container-login100-form-btn ">
 
                             <button class="login100-form-btn register_btn">
-                                <img class="reg_loader"style="width: 15%;display: none;" src="<?php echo base_url(); ?>assets/images/loader.gif" alt="Loading...">
+                                <img class="reg_loader"style="width: 15%;display: none;" src="<?php echo base_url(); ?>assets/img/loader.gif" alt="Loading...">
                                 Join
                             </button>
                         </div>
@@ -144,7 +144,7 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view('footer');?> 
+    <?php $this->load->view('footer_login');?> 
     <script type="text/javascript">
 
 $(document).ready(function() {

@@ -3413,4 +3413,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .nav-menu li a {
   cursor: pointer;
 }
+.edit_icon {
+  cursor: pointer;
+}
 /* My Edits */

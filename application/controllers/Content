@@ -1,0 +1,26 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Content extends CI_Controller {
+
+	function __construct() { 
+        parent::__construct();
+		$this->load->helper('url');
+		$this->load->library('session');
+		// if(empty($this->session->userdata('userdata')))
+		// {
+		// 	header( "Location: ".base_url()."login");
+		// }
+    }
+	public function index()
+	{
+		echo "text";exit;
+	}
+
+	public function footer_text()
+	{
+		echo "text";exit;
+		$result = $this->content_model->get_footer_text();
+	}
+
+}
