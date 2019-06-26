@@ -11,10 +11,16 @@
 							<h4>Follow Me</h4>
 						</div>
 						<div class="footer-social">
-							<a href="https://www.facebook.com/dibinxavier"><i class="fa fa-facebook"></i></a>
+							<!-- <a href="https://www.facebook.com/dibinxavier"><i class="fa fa-facebook"></i></a>
 							<a href="https://www.instagram.com/im_dibin/"><i class="fa fa-instagram"></i></a>
 							<a href="https://twitter.com/dibinxavier369"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a> -->
+
+							<?php 
+							if($this->session->userdata('userdata'))
+							{?>
+								<span class="edit_icon footersocial_edit" data-target="#edit" data-toggle="modal"><i class="fa fa-lg fa-pencil"></i></span>
+							<?php }?>
 						</div>
 					</div>
 				</div>
@@ -48,13 +54,7 @@
 			  </div>  
 			</div>
 
-
 <style type="text/css">
-	
-
-
-
-
 /*Modal*/
 h4 {
   font-weight: bold;
@@ -150,7 +150,7 @@ background: #f5f0f0;
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
-		})
+		});
 
 		$( "#home" ).click(function() {
 			$('body,html').animate({
@@ -178,6 +178,27 @@ background: #f5f0f0;
 			$(this).addClass("active");
 		});
 		
+
+
+		$(document).ready(function() {
+			getFooterText();
+			getSocial();
+		});
+
+		//Footer Text
+		function getFooterText()
+		{
+			$.ajax({
+                url: '<?php echo base_url('content/footer_text'); ?>',
+                type: 'GET',
+                dataType: 'json',
+                complete: function(data) {
+                	console.log(data);
+                	$(".footer-text").html(data.responseText);
+                }
+            });
+		}
+
 		$( ".footertext_edit" ).click(function() {
 			 $.ajax({
                 url: '<?php echo base_url('content/footer_text'); ?>',
@@ -185,16 +206,12 @@ background: #f5f0f0;
                 dataType: 'json',
                 complete: function(data) {
                 	// var obj = JSON.parse(data);
-                    console.log(data.responseText);
+                    // console.log(data.responseText);
                     $("#edit_modal_form").html('<textarea type="text" id="footertext" class="modal_input footertext form-control" >'+data.responseText+'</textarea>  <span data-dismiss="modal" id="footertext_save" class="btn login">OK</span>' );
                     
                 }
             });
 		});
-
-
-
-
 
 		$(document).on('click', '#footertext_save', function(){
 			var footertext = $("#footertext").val();
@@ -213,22 +230,104 @@ background: #f5f0f0;
                 }
             });
 		});
+		//Footer Text
 
-		function getFooterText()
+		//Footer Social
+		var social_count=0;
+		function getSocial()
 		{
 			$.ajax({
-                url: '<?php echo base_url('content/footer_text'); ?>',
+                url: '<?php echo base_url('content/footer_social'); ?>',
                 type: 'GET',
                 dataType: 'json',
                 complete: function(data) {
-                	$(".footer-text").html(data.responseText);
+                	var social = JSON.parse(data.responseText);
+                	var scoial_data='';
+                	for(var v in social) {
+                		// console.log(v);
+                		scoial_data+='<a href="'+social[v]+'"><i class="fa '+v+'"></i></a>';
+					}
+					$(".footer-social").prepend(scoial_data);
                 }
             });
 		}
-		$(document).ready(function(){
-			getFooterText();
+
+		$( ".footersocial_edit" ).click(function() {
+			social_count=0;
+			 $.ajax({
+                url: '<?php echo base_url('content/footer_social'); ?>',
+                type: 'GET',
+                dataType: 'json',
+                complete: function(data) {
+                	// var obj = JSON.parse(data);
+                    // console.log(data.responseText);
+                    var social = JSON.parse(data.responseText);
+                	var scoial_data='<div class="scoial_data_container">';
+                	for(var v in social) {
+                		// console.log(v);
+                		social_count++;
+                		scoial_data+='<div class="social_content_'+social_count+'"><input type="text" value="'+v+'"/><input type="text" value="'+social[v]+'"/><span class="social_delete "><i class="fa fa-times" aria-hidden="true"></i></span></div>';
+					}
+					scoial_data+='</div>';
+                    $("#edit_modal_form").html(scoial_data+'<span class="social_add"><i class="fa fa-plus" aria-hidden="true"></i></span><br><span data-dismiss="modal" id="footersocial_save" class="btn login">OK</span>' );
+                    
+                }
+            });
+		});
+		$(document).on('click', '.social_delete', function(){
+			social_count--;
+			var parent_classname = $(this).parent().prop('className');
+			var deleted_content = parseInt(parent_classname[parent_classname.length -1]);
+			console.log("deleted_content+1",deleted_content+1);
+			console.log("social_count",social_count);
+			for(var i=deleted_content+1;i<=social_count+1;i++) {
+				$(".social_content_"+i).addClass("social_content_"+(i-1));
+				$(".social_content_"+i).removeClass("social_content_"+i);
+			}
+			$(this).parent().remove();
+		});
+		$(document).on('click', '.social_add', function(){
+			social_count++;
+			$('.scoial_data_container').append('<div  class="social_content_'+social_count+'"><input type="text" value=""/><input type="text" value=""/><span class="social_delete"><i class="fa fa-times" aria-hidden="true"></i></span></div>');
+		});
+		$(document).on('click', '#footersocial_save', function(){
+			var json = [       
+			     { "value": "pune", "text": "Pune"  },
+			     { "value": "mumbai", "text": "Mumbai"  },
+			     { "value": "nashik", "text": "Nashik"  }
+			   ];
+   	 		var values = [];
+   	 		var icon,url;
+
+			for(var i=1;i<=social_count;i++) {
+				icon=$(".social_content_"+i+" input").val();
+				url=$(".social_content_"+i+" input").next().val()
+				values.push({
+		            icon, url
+		        });
+
+				console.log($(".social_content_"+i+" input").val());
+				console.log($(".social_content_"+i+" input").next().val());
+			}
+			console.log("val---" + JSON.stringify(values));
+			var footertext = $(".scoial_data_container").val();
+			 // $.ajax({
+    //             url: '<?php //echo base_url('content/footer_social_update'); ?>',
+    //             type: 'POST',
+    //             data: {
+    //                 footertext: footertext
+    //             },
+    //             dataType: 'json',
+    //             complete: function(data) {
+    //                 $(".footer-text").html(footertext);
+				// 	$.notify({
+				// 		message: 'Successfully Updated!'
+				// 	});
+    //             }
+    //         });
 		});
 
+		//Footer Social
 	</script>
 
 </body>

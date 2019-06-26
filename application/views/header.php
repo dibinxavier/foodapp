@@ -29,7 +29,13 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/nice-select.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/animate.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.carousel.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
+	<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css"> -->
+	<?php 
+	$this->load->database();
+	$this->db->where('content_key','theme');
+	$q = $this->db->get('website_contents');
+	$data = $q->result_array(); ?>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/theme_<?php echo $data[0]['content_value'];?>.css">
 </head>
 
 <body>
@@ -56,7 +62,7 @@
 						<li><a id="about">About</a></li>
 						<li><a id="portfolio" >Portfolio</a></li>
 						<li><a id="contact" >Contact</a></li>
-						<li class="menu-has-children"><a href="#">Pages</a>
+						<!-- <li class="menu-has-children"><a href="#">Pages</a>
 							<ul>
 								<li><a href="elements.html">Elements</a></li>
 								<li><a href="contact.html">Contact</a></li>
@@ -64,12 +70,29 @@
 								<li><a href="portfolio-details.html">Portfolio Details</a></li>
 							</ul>
 						</li>
-						<li class="menu-has-children"><a href="">Blog</a>
+						<li class="menu-has-children"><a href="#">Blog</a>
 							<ul>
 								<li><a href="blog-home.html">Blog Home</a></li>
 								<li><a href="blog-single.html">Blog Single</a></li>
 							</ul>
+						</li> -->
+						<?php 
+						if(!empty($this->session->userdata('userdata')))
+						{?>
+						<li class="menu-has-children"><a href="#">Settings</a>
+							<ul>
+								<li><a href="<?php echo base_url(); ?>login/logout">Logout</a></li>
+							</ul>
 						</li>
+						<li class="menu-has-children"><a href="#">Themes</a>
+							<ul>
+								<li><a href="<?php echo base_url(); ?>content/theme/1">Theme 1</a></li>
+								<li><a href="<?php echo base_url(); ?>content/theme/2">Theme 2</a></li>
+								<li><a href="<?php echo base_url(); ?>content/theme/3">Theme 3</a></li>
+								<li><a href="<?php echo base_url(); ?>content/theme/4">Theme 4</a></li>
+							</ul>
+						</li>
+						<?php  } ?>
 					</ul>
 				</nav>
 			</div>

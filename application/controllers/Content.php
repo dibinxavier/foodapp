@@ -13,25 +13,53 @@ class Content extends CI_Controller {
 		// 	header( "Location: ".base_url()."login");
 		// }
     }
-	public function index()
+    //Theme
+    public function theme($id)
 	{
-		echo "test";exit;
+		// echo $id;exit;
+		$result = $this->content_model->put_theme($id);
+		echo $result;exit;
 	}
-
+	//Theme
+	//Footer Text
 	public function footer_text()
 	{
-		// echo "text";exit;
 		$result = $this->content_model->get_footer_text();
-		// echo json_encode($result);
 		echo $result;exit;
 	}
 	public function footer_text_update()
 	{
-		// echo "text";exit;
 		$result = $this->content_model->put_footer_text();
+		echo $result;exit;
+	}
+	//Footer Text
+
+	//Footer Social
+	public function footer_social()
+	{
+		// echo "text";exit;
+		$result = $this->content_model->get_footersocial();
+		// echo $result;exit;
+		echo $result;
+	}
+	public function footersocial_update()
+	{
+		$footer_array = array("fa-facebook"=>"https://www.facebook.com/dibinxavier","fa-instagram"=>"https://www.instagram.com/im_dibin","fa-twitter"=>"https://www.twitter.com/dibinxavier369");
+
+		$footer_json = json_encode($footer_array);
+
+		// echo $myJSON;
+
+		// $marr = json_decode($myJSON);
+		// print_r($marr);
+		// exit;
+
+		// echo "text";exit;
+		$result = $this->content_model->put_footersocial($footer_json);
 		// echo json_encode($result);
 		echo $result;exit;
 	}
+	//Footer Social
 
 
 }
