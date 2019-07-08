@@ -42,20 +42,24 @@ class Content extends CI_Controller {
 		// echo $result;exit;
 		echo $result;
 	}
-	public function footersocial_update()
+	public function footer_social_update()
 	{
-		$footer_array = array("fa-facebook"=>"https://www.facebook.com/dibinxavier","fa-instagram"=>"https://www.instagram.com/im_dibin","fa-twitter"=>"https://www.twitter.com/dibinxavier369");
+		// $footer_array = array("fa-facebook"=>"https://www.facebook.com/dibinxavier","fa-instagram"=>"https://www.instagram.com/im_dibin","fa-twitter"=>"https://www.twitter.com/dibinxavier369");
 
-		$footer_json = json_encode($footer_array);
+		// $footer_json = json_encode($footer_array);
+		$social_data = json_encode($this->input->post('socialdata'));
 
-		// echo $myJSON;
+		print_r($social_data) ;
+		print_r("----------") ;
+		// exit;
+		
 
 		// $marr = json_decode($myJSON);
 		// print_r($marr);
 		// exit;
 
 		// echo "text";exit;
-		$result = $this->content_model->put_footersocial($footer_json);
+		$result = $this->content_model->put_footersocial($social_data);
 		// echo json_encode($result);
 		echo $result;exit;
 	}

@@ -50,10 +50,10 @@ class Content_model extends CI_Model {
             // print_r($data[0]['content_value']);exit;
             return $data[0]['content_value'];
         }
-        public function put_footersocial($footer_json)
+        public function put_footersocial($social_data)
         {
 
-            $data=array('content_value'=>$footer_json);
+            $data=array('content_value'=>$social_data);
             $this->db->where('content_key','social');
             $this->db->update('website_contents',$data);
         }

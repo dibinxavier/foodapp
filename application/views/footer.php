@@ -11,10 +11,6 @@
 							<h4>Follow Me</h4>
 						</div>
 						<div class="footer-social">
-							<!-- <a href="https://www.facebook.com/dibinxavier"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.instagram.com/im_dibin/"><i class="fa fa-instagram"></i></a>
-							<a href="https://twitter.com/dibinxavier369"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a> -->
 
 							<?php 
 							if($this->session->userdata('userdata'))
@@ -193,7 +189,7 @@ background: #f5f0f0;
                 type: 'GET',
                 dataType: 'json',
                 complete: function(data) {
-                	console.log(data);
+                	// console.log(data);
                 	$(".footer-text").html(data.responseText);
                 }
             });
@@ -241,13 +237,16 @@ background: #f5f0f0;
                 type: 'GET',
                 dataType: 'json',
                 complete: function(data) {
-                	var social = JSON.parse(data.responseText);
-                	var scoial_data='';
+                	var social = JSON.parse(data.responseJSON);
+                	// var social = JSON.parse(data.responseText);
+                	console.log(social);
+                	var social_data='<div class="social-inner">';
                 	for(var v in social) {
-                		// console.log(v);
-                		scoial_data+='<a href="'+social[v]+'"><i class="fa '+v+'"></i></a>';
+                		console.log(social[v].icon);
+                		social_data+='<a target="blank" href="'+social[v].url+'"><i class="fa '+social[v].icon+'"></i></a>';
 					}
-					$(".footer-social").prepend(scoial_data);
+                	social_data+='</div>';
+					$(".footer-social").prepend(social_data);
                 }
             });
 		}
@@ -261,15 +260,15 @@ background: #f5f0f0;
                 complete: function(data) {
                 	// var obj = JSON.parse(data);
                     // console.log(data.responseText);
-                    var social = JSON.parse(data.responseText);
-                	var scoial_data='<div class="scoial_data_container">';
+                    var social = JSON.parse(data.responseJSON);
+                	var social_data='<div class="social_data_container">';
                 	for(var v in social) {
                 		// console.log(v);
                 		social_count++;
-                		scoial_data+='<div class="social_content_'+social_count+'"><input type="text" value="'+v+'"/><input type="text" value="'+social[v]+'"/><span class="social_delete "><i class="fa fa-times" aria-hidden="true"></i></span></div>';
+                		social_data+='<div class="social_content_'+social_count+'"><input type="text" value="'+social[v].icon+'"/><input type="text" value="'+social[v].url+'"/><span class="social_delete "><i class="fa fa-times" aria-hidden="true"></i></span></div>';
 					}
-					scoial_data+='</div>';
-                    $("#edit_modal_form").html(scoial_data+'<span class="social_add"><i class="fa fa-plus" aria-hidden="true"></i></span><br><span data-dismiss="modal" id="footersocial_save" class="btn login">OK</span>' );
+					social_data+='</div>';
+                    $("#edit_modal_form").html(social_data+'<span class="social_add"><i class="fa fa-plus" aria-hidden="true"></i></span><br><span data-dismiss="modal" id="footersocial_save" class="btn login">OK</span>' );
                     
                 }
             });
@@ -278,8 +277,8 @@ background: #f5f0f0;
 			social_count--;
 			var parent_classname = $(this).parent().prop('className');
 			var deleted_content = parseInt(parent_classname[parent_classname.length -1]);
-			console.log("deleted_content+1",deleted_content+1);
-			console.log("social_count",social_count);
+			// console.log("deleted_content+1",deleted_content+1);
+			// console.log("social_count",social_count);
 			for(var i=deleted_content+1;i<=social_count+1;i++) {
 				$(".social_content_"+i).addClass("social_content_"+(i-1));
 				$(".social_content_"+i).removeClass("social_content_"+i);
@@ -288,14 +287,9 @@ background: #f5f0f0;
 		});
 		$(document).on('click', '.social_add', function(){
 			social_count++;
-			$('.scoial_data_container').append('<div  class="social_content_'+social_count+'"><input type="text" value=""/><input type="text" value=""/><span class="social_delete"><i class="fa fa-times" aria-hidden="true"></i></span></div>');
+			$('.social_data_container').append('<div  class="social_content_'+social_count+'"><input type="text" value=""/><input type="text" value=""/><span class="social_delete"><i class="fa fa-times" aria-hidden="true"></i></span></div>');
 		});
 		$(document).on('click', '#footersocial_save', function(){
-			var json = [       
-			     { "value": "pune", "text": "Pune"  },
-			     { "value": "mumbai", "text": "Mumbai"  },
-			     { "value": "nashik", "text": "Nashik"  }
-			   ];
    	 		var values = [];
    	 		var icon,url;
 
@@ -306,25 +300,27 @@ background: #f5f0f0;
 		            icon, url
 		        });
 
-				console.log($(".social_content_"+i+" input").val());
-				console.log($(".social_content_"+i+" input").next().val());
+				// console.log($(".social_content_"+i+" input").val());
+				// console.log($(".social_content_"+i+" input").next().val());
 			}
 			console.log("val---" + JSON.stringify(values));
-			var footertext = $(".scoial_data_container").val();
-			 // $.ajax({
-    //             url: '<?php //echo base_url('content/footer_social_update'); ?>',
-    //             type: 'POST',
-    //             data: {
-    //                 footertext: footertext
-    //             },
-    //             dataType: 'json',
-    //             complete: function(data) {
-    //                 $(".footer-text").html(footertext);
-				// 	$.notify({
-				// 		message: 'Successfully Updated!'
-				// 	});
-    //             }
-    //         });
+			var socialdata = JSON.stringify(values);
+			 $.ajax({
+                url: '<?php echo base_url('content/footer_social_update'); ?>',
+                type: 'POST',
+                data: {
+                    socialdata: socialdata
+                },
+                dataType: 'json',
+                complete: function(data) {
+                    $(".social-inner").html("");
+                    getSocial();
+                    
+					$.notify({
+						message: 'Successfully Updated!'
+					});
+                }
+            });
 		});
 
 		//Footer Social
