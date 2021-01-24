@@ -1,55 +1,208 @@
-	<!-- start footer Area -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="footer-top flex-column">
-						<div class="footer-logo">
-							<a href="#">
-								<img src="<?php echo base_url(); ?>assets/img/logo.png" alt="" style="max-width: 7%;">
-							</a>
-							<h4>Follow Me</h4>
-						</div>
-						<div class="footer-social">
-
-							<?php 
-							if($this->session->userdata('userdata'))
-							{?>
-								<span class="edit_icon footersocial_edit" data-target="#edit" data-toggle="modal"><i class="fa fa-lg fa-pencil"></i></span>
-							<?php }?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row footer-bottom justify-content-center">
-				<p class="col-lg-8 col-sm-12 footer-text">
-					
-				</p>
-				<?php 
-				if($this->session->userdata('userdata'))
-				{?>
-					<span class="edit_icon footertext_edit" data-target="#edit" data-toggle="modal"><i class="fa fa-lg fa-pencil"></i></span>
-				<?php }?>
-
-
-
-
-
-				<!--Trigger-->
-			<div id="edit" class="modal fade" role="dialog">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-body">
-			        <button data-dismiss="modal" class="close">&times;</button>
-			        <h4 style="color: #6b5f5f">EDIT</h4>
-			        <form id="edit_modal_form">
-			          
-			        </form>
-			      </div>
-			    </div>
-			  </div>  
-			</div>
-
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright <?php echo date('Y');?>. All right reserved.</p>
+            </div>
+        </footer>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- offset area start -->
+    <div class="offset-area">
+        <div class="offset-close"><i class="ti-close"></i></div>
+        <ul class="nav offset-menu-tab">
+            <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        </ul>
+        <div class="offset-content tab-content">
+            <div id="activity" class="tab-pane fade in show active">
+                <div class="recent-activity">
+                    <div class="timeline-task">
+                        <div class="icon bg1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Added</h4>
+                            <span class="time"><i class="ti-time"></i>7 Minutes Ago</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>You missed you Password!</h4>
+                            <span class="time"><i class="ti-time"></i>09:20 Am</span>
+                        </div>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="fa fa-bomb"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Member waiting for you Attention</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="ti-signal"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>You Added Kaji Patha few minutes ago</h4>
+                            <span class="time"><i class="ti-time"></i>01 minutes ago</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Ratul Hamba sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Hello sir , where are you, i am egerly waiting for you.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="fa fa-bomb"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="ti-signal"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="tab-pane fade">
+                <div class="offset-settings">
+                    <h4>General Settings</h4>
+                    <div class="settings-list">
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Notifications</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch1" />
+                                    <label for="switch1">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Keep it 'On' When you want to get all the notification.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show recent activity</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch2" />
+                                    <label for="switch2">Toggle</label>
+                                </div>
+                            </div>
+                            <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show your emails</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch3" />
+                                    <label for="switch3">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Show email so that easily find you.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show Task statistics</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch4" />
+                                    <label for="switch4">Toggle</label>
+                                </div>
+                            </div>
+                            <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Notifications</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch5" />
+                                    <label for="switch5">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Use checkboxes when looking for yes or no answers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Attention!</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" type="button" class="btn btn-danger delete">Delete&nbsp;&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offset area end -->
 <style type="text/css">
 /*Modal*/
 h4 {
@@ -59,10 +212,6 @@ h4 {
 .close {
   color: #fff;
   transform: scale(1.2)
-}
-.modal-content {
-  font-weight: bold;
-  background: linear-gradient(to bottom right,#ffffff,#848484);
 }
 .form-control {
   margin: 1em 0;
@@ -123,30 +272,36 @@ background: #f5f0f0;
 	<!-- ####################### End Scroll to Top Area ####################### -->
 
 	<script src="<?php echo base_url(); ?>assets/js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	 crossorigin="anonymous"></script>
-	<script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script>
+	<!-- <script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="<?php echo base_url(); ?>assets/js/easing.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/hoverIntent.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/superfish.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/mn-accordion.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/jquery.ajaxchimp.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/jquery.magnific-popup.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/jquery.nice-select.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/isotope.pkgd.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/jquery.circlechart.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/mail-script.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/wow.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/tilt.jquery.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
-	<!-- <script src="<?php echo base_url(); ?>assets/js/notify.js"></script> -->
-	<script src="<?php echo base_url(); ?>assets/vendor/bootstrap-notify-master/bootstrap-notify.js"></script>
+
+    <!-- jquery latest version -->
+    <!-- bootstrap 4 js -->
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/popper.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/metisMenu.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <!-- all line chart activation -->
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/plugins.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/scripts.js"></script>
+
+
+
+
 	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		});
 
 		$( "#home" ).click(function() {
 			$('body,html').animate({
@@ -155,45 +310,6 @@ background: #f5f0f0;
 			$(".nav-menu li a").removeClass("active");
 			$(this).addClass("active");
 		});
-		
-		$( "#about" ).click(function() {
-			$("html, body").animate({scrollTop: $('.about-area').offset().top }, 2000);
-			$(".nav-menu li a").removeClass("active");
-			$(this).addClass("active");
-		});
-
-		$( "#portfolio" ).click(function() {
-			$("html, body").animate({scrollTop: $('.work-area').offset().top }, 2000);
-			$(".nav-menu li a").removeClass("active");
-			$(this).addClass("active");
-		});
-
-		$( "#contact" ).click(function() {
-			$("html, body").animate({scrollTop: $('.contact-area').offset().top }, 2000);
-			$(".nav-menu li a").removeClass("active");
-			$(this).addClass("active");
-		});
-		
-
-
-		$(document).ready(function() {
-			getFooterText();
-			getSocial();
-		});
-
-		//Footer Text
-		function getFooterText()
-		{
-			$.ajax({
-                url: '<?php echo base_url('content/footer_text'); ?>',
-                type: 'GET',
-                dataType: 'json',
-                complete: function(data) {
-                	// console.log(data);
-                	$(".footer-text").html(data.responseText);
-                }
-            });
-		}
 
 		$( ".footertext_edit" ).click(function() {
 			 $.ajax({
@@ -208,122 +324,11 @@ background: #f5f0f0;
                 }
             });
 		});
+        $( document ).ready(function() {
+            setTimeout(function(){$('.alert-success').fadeOut(1000); }, 5000);
+            
+        });
 
-		$(document).on('click', '#footertext_save', function(){
-			var footertext = $("#footertext").val();
-			 $.ajax({
-                url: '<?php echo base_url('content/footer_text_update'); ?>',
-                type: 'POST',
-                data: {
-                    footertext: footertext
-                },
-                dataType: 'json',
-                complete: function(data) {
-                    $(".footer-text").html(footertext);
-					$.notify({
-						message: 'Successfully Updated!'
-					});
-                }
-            });
-		});
-		//Footer Text
-
-		//Footer Social
-		var social_count=0;
-		function getSocial()
-		{
-			$.ajax({
-                url: '<?php echo base_url('content/footer_social'); ?>',
-                type: 'GET',
-                dataType: 'json',
-                complete: function(data) {
-                	var social = JSON.parse(data.responseJSON);
-                	// var social = JSON.parse(data.responseText);
-                	console.log(social);
-                	var social_data='<div class="social-inner">';
-                	for(var v in social) {
-                		console.log(social[v].icon);
-                		social_data+='<a target="blank" href="'+social[v].url+'"><i class="fa '+social[v].icon+'"></i></a>';
-					}
-                	social_data+='</div>';
-					$(".footer-social").prepend(social_data);
-                }
-            });
-		}
-
-		$( ".footersocial_edit" ).click(function() {
-			social_count=0;
-			 $.ajax({
-                url: '<?php echo base_url('content/footer_social'); ?>',
-                type: 'GET',
-                dataType: 'json',
-                complete: function(data) {
-                	// var obj = JSON.parse(data);
-                    // console.log(data.responseText);
-                    var social = JSON.parse(data.responseJSON);
-                	var social_data='<div class="social_data_container">';
-                	for(var v in social) {
-                		// console.log(v);
-                		social_count++;
-                		social_data+='<div class="social_content_'+social_count+'"><input type="text" value="'+social[v].icon+'"/><input type="text" value="'+social[v].url+'"/><span class="social_delete "><i class="fa fa-times" aria-hidden="true"></i></span></div>';
-					}
-					social_data+='</div>';
-                    $("#edit_modal_form").html(social_data+'<span class="social_add"><i class="fa fa-plus" aria-hidden="true"></i></span><br><span data-dismiss="modal" id="footersocial_save" class="btn login">OK</span>' );
-                    
-                }
-            });
-		});
-		$(document).on('click', '.social_delete', function(){
-			social_count--;
-			var parent_classname = $(this).parent().prop('className');
-			var deleted_content = parseInt(parent_classname[parent_classname.length -1]);
-			// console.log("deleted_content+1",deleted_content+1);
-			// console.log("social_count",social_count);
-			for(var i=deleted_content+1;i<=social_count+1;i++) {
-				$(".social_content_"+i).addClass("social_content_"+(i-1));
-				$(".social_content_"+i).removeClass("social_content_"+i);
-			}
-			$(this).parent().remove();
-		});
-		$(document).on('click', '.social_add', function(){
-			social_count++;
-			$('.social_data_container').append('<div  class="social_content_'+social_count+'"><input type="text" value=""/><input type="text" value=""/><span class="social_delete"><i class="fa fa-times" aria-hidden="true"></i></span></div>');
-		});
-		$(document).on('click', '#footersocial_save', function(){
-   	 		var values = [];
-   	 		var icon,url;
-
-			for(var i=1;i<=social_count;i++) {
-				icon=$(".social_content_"+i+" input").val();
-				url=$(".social_content_"+i+" input").next().val()
-				values.push({
-		            icon, url
-		        });
-
-				// console.log($(".social_content_"+i+" input").val());
-				// console.log($(".social_content_"+i+" input").next().val());
-			}
-			console.log("val---" + JSON.stringify(values));
-			var socialdata = JSON.stringify(values);
-			 $.ajax({
-                url: '<?php echo base_url('content/footer_social_update'); ?>',
-                type: 'POST',
-                data: {
-                    socialdata: socialdata
-                },
-                dataType: 'json',
-                complete: function(data) {
-                    $(".social-inner").html("");
-                    getSocial();
-                    
-					$.notify({
-						message: 'Successfully Updated!'
-					});
-                }
-            });
-		});
-
-		//Footer Social
 	</script>
 
 </body>

@@ -17,7 +17,8 @@ class Login_model extends CI_Model {
         public function insert_entry()
         {
                 $this->name    	= $_POST['name']; // please read the below note
-                $this->email 	= $_POST['email'];
+                $this->email    = $_POST['email'];
+                $this->mob    = $_POST['mob'];
                 $this->password  	= md5($_POST['password']);
                 //$this->date     = date();
                 //print_r($this->date);exit;

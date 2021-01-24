@@ -1,102 +1,95 @@
-<!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/fav.png">
-	<!-- Author Meta -->
-	<meta name="author" content="colorlib">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>Dibin Xavier</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
-	<!--
-			CSS
-			============================================= -->
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/linearicons.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/nice-select.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/animate.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.carousel.css">
-	<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css"> -->
-	<?php 
-	$this->load->database();
-	$this->db->where('content_key','theme');
-	$q = $this->db->get('website_contents');
-	$data = $q->result_array(); ?>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/theme_<?php echo $data[0]['content_value'];?>.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Food App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>/assets/img/3d3.png">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/metisMenu.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/typography.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/default-css.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
+    <!-- modernizr css -->
+    <script src="<?php echo base_url(); ?>assets/dashboard/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- google captcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 </head>
 
 <body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <!-- <div id="preloader">
+        <div class="loader"></div>
+    </div> -->
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="<?php echo base_url();?>"><img src="<?php echo base_url(); ?>assets/img/3d3.png" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                        <li class="home-page"><a href="<?php echo base_url(); ?>"><i class="ti-dashboard"></i> <span>dashboard</span></a></li>
+                        	<?php if($this->session->userdata('userdata')['id']==0) {?>
+                            
+                            <li>
+                                <a href="<?php echo base_url(); ?>users/list" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Users
+                                    </span></a>
+                                <!-- <ul class="collapse">
+                                    <li class="list-user-page"><a  href="">Users</a></li>
+                                </ul> -->
+                            </li>
+                            <?php } ?>
 
-	<!-- Start Preloader Area -->
-	<div class="preloader-area">
-		<div class="loader-box">
-			<div class="loader"></div>
-		</div>
-	</div>
-	<!-- End Preloader Area -->
-
-
-	<!-- Start Header Area -->
-	<header id="header">
-		<div class="container main-menu">
-			<div class="row align-items-center d-flex">
-				<div id="log" class="logo_div">
-					<a href="index.html"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="" title="" /></a>
-				</div>
-				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class=""><a id="home" class="active">Home</a></li>
-						<li><a id="about">About</a></li>
-						<li><a id="portfolio" >Portfolio</a></li>
-						<li><a id="contact" >Contact</a></li>
-						<!-- <li class="menu-has-children"><a href="#">Pages</a>
-							<ul>
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="services.html">Service</a></li>
-								<li><a href="portfolio-details.html">Portfolio Details</a></li>
-							</ul>
-						</li>
-						<li class="menu-has-children"><a href="#">Blog</a>
-							<ul>
-								<li><a href="blog-home.html">Blog Home</a></li>
-								<li><a href="blog-single.html">Blog Single</a></li>
-							</ul>
-						</li> -->
-						<?php 
-						if(!empty($this->session->userdata('userdata')))
-						{?>
-						<li class="menu-has-children"><a href="#">Settings</a>
-							<ul>
-								<li><a href="<?php echo base_url(); ?>login/logout">Logout</a></li>
-							</ul>
-						</li>
-						<li class="menu-has-children"><a href="#">Themes</a>
-							<ul>
-								<li><a href="<?php echo base_url(); ?>content/theme/1">Theme 1</a></li>
-								<li><a href="<?php echo base_url(); ?>content/theme/2">Theme 2</a></li>
-								<li><a href="<?php echo base_url(); ?>content/theme/3">Theme 3</a></li>
-								<li><a href="<?php echo base_url(); ?>content/theme/4">Theme 4</a></li>
-							</ul>
-						</li>
-						<?php  } ?>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<!-- End Header Area -->
-
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+		<div class="main-content">
+		    <!-- header area start -->
+		    <div class="header-area">
+		        <div class="row align-items-center">
+		            <!-- nav and search button -->
+		            <div class="col-md-6 col-sm-8 clearfix">
+		                <div class="nav-btn pull-left">
+		                    <span></span>
+		                    <span></span>
+		                    <span></span>
+		                </div>
+		            </div>
+		            <!-- profile info & task notification -->
+		            <div class="col-md-6 col-sm-4 clearfix">
+		                <ul class="notification-area pull-right">
+		                    <li id="full-view"><i class="ti-fullscreen"></i></li>
+		                    <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+		                    
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- header area end -->
+		       

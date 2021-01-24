@@ -1,0 +1,11 @@
+.success-close {
+	float: right;
+    margin-top: 5px;
+    font-weight: 600;
+    color: #60986e;
+    cursor: pointer;
+}
+.actions-td span {
+	cursor: pointer;
+	padding: 5px;
+}
